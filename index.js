@@ -56,6 +56,7 @@ while (opcion >= 1) {
       opcion = parseInt(prompt('ingrese otro sabor de pizza o cero para finalizar'))
    } else {
       alert('La opcion ingresada no existe')
+      break;
    }
  }
 
