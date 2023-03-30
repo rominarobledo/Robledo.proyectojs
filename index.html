@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <title>Proyectojavascrip</title>
 </head>
+
 <body>
-    <h1>Curso javascrip</h1>
+
+    <h2 id="titulo">Bienvenido ingrese sus datos</h2>
+    <form id="formulario">
+        nombre: <input  type="text" name="nombre" id="nombre">
+        apellido: <input  type="text" name="apellido" id="apellido">
+        <input type="submit" value="INGRESAR">
+    </form>
+    <div class = "row" id="divProductos">
+
+    </div>
+
+    <!-- <div id="divPrincipal">
+        <select name="listaProds" id="listaProds"></select>
+        <button id="anadirProd">ANADIR PRODUCTO</button>
+        <button id="finalizarCompra">FINALIZAR COMPRA</button>
+    </div> -->
+
     <script src="index.js"></script>
 </body>
+
 </html>

@@ -71,12 +71,66 @@ const productos  = [
 },
 ]
 */
+const formulario = document.getElementById('formulario')
+const inputNombre = document.getElementById('nombre')
+const inputApellido = document.getElementById('apellido')
+const titulo = document.getElementById('titulo')
+
+//click en boton ingresar
+formulario.onsubmit = (e) => {
+   e.preventDefault()
+   const infoUsuario = {
+      nombre: inputNombre.value,
+      apellido: inputApellido.value
+   }
+   localStorage.setItem('infoUsuario', JSON.stringify(infoUsuario))
+   formulario.remove()
+   titulo.innertext = `Bienvenido ${infoUsuario.nombre} ${infoUsuario.apellido}`
+}
+
+//mirar si en storage existe infoUsuario
+const infoUsuario = localStorage.getItem('infoUsuario')
+const infoUsuarioJS = JSON.parse(infoUsuario)
+//console.log(infoUsuario);
+
+if (infoUsuario) {
+   formulario.remove()
+   titulo.innertext = `Bienvenido ${infoUsuarioJS.nombre} ${infoUsuarioJS.apellido}`
+}
+
+//clase
+/*class Producto {
+   constructor(id, nombre, precio, stock) {
+      this.id = id
+      this.precio = precio
+      this.nombre = nombre
+      this.stock = stock
+   }
+}
+const Productos = [
+   new Producto(1, 'muzzarela', 600, 50),
+   new Producto(2, 'fugazzeta', 700, 100),
+new Producto(3,'napolitana', 800, 100),
+new Producto(4, 'margarita', 900, 100)
+]
+console.log(Productos);
+Productos.forEach(prod=>)*/
 
 
-// CLASE PRODUCTO
 
-class Producto {
-   constructor( id, nombre,precio){
+
+
+
+
+
+
+
+
+
+/*CLASE PRODUCTO
+
+class producto {
+   constructor(id, nombre, precio) {
       this.nombre = nombre
       this.id = id
       this.precio = precio
@@ -85,16 +139,59 @@ class Producto {
 }
 
 
-// CRREAMOS CUATRO PRODUCTOS 
-const muzzarela = new Producto (1,'muzzarela',500)
-const  pepperoni = new Producto (2,'pepperoni',200)
-const fugazzeta = new Producto (3,'fugazzeta',1000)
-const margarita = new Producto (4,'margarita',1500)
+// CREAMOS CUATRO PRODUCTOS
+const muzzarela = new producto(1, 'muzzarela', 500)
+const pepperoni = new producto(2, 'pepperoni', 200)
+const fugazzeta = new producto(3, 'fugazzeta', 1000)
+const margarita = new producto(4, 'margarita', 1500)
 
 // GUARDAR PRODUCTOS
 const productos = [muzzarela,pepperoni,fugazzeta,margarita]
-console.log(productos)
+//console.log(productos)
 
+//agregar opciones de productos
+const selectNode = document.querySelector('#listaProds')
+productos.forEach ((prod) => {
+   const optionProd = document.createElement('option')
+   optionProd.innerText = `${prod.nombre}: ${prod.precio}`
+   optionProd.setAttribute('id', `${prod.id}`)
+   selectNode.append(optionProd)
+})
+
+//carrito
+const carrito = []
+
+//boton añadir producto
+const anadirBtnNode = document.querySelector('#anadirProd')
+anadirBtnNode.onclick = ()=>{
+   const index = selectNode.selectedIndex
+   const prodSeleccionado = productos[index]
+   carrito.push(prodSeleccionado)
+   console.log(carrito);
+}
+
+//boton finalizar compra
+const finalizarBtnNode = document.querySelector('#finalizarCompra')
+finalizarBtnNode.onclick = ()=>{
+   let totalCompra = 0
+   carrito.forEach ((producto) => {
+      totalCompra = totalCompra + producto.precio
+   })
+   alert (`El total de tu compra es ${totalCompra}`)
+}
+*/
+//math
+
+//date
+
+
+
+
+
+
+
+
+/*
 let productosEscogido = prompt ('Escoge el producto que deseas comprar: \n muzzarela\n pepperoni\n fugazzeta\n margarina\n')
 
 //VARIABLE PARA CONDICION DEL CICLO
@@ -140,8 +237,11 @@ alert('el total de tu compra es: $'+totalCompra)
 
 alert(' ¡Muchas Gracias por su compra!')
 
-
-
+// ACCEDER AL DOM
+console.log(document)
+//acceder a los nodos
+//1.getElement
+*/
 
 
 
